@@ -17,7 +17,7 @@ export async function signup(req, res) {
       return res.status(400).json({ success: false, message: "Invalid email" });
     }
 
-    if (password < 6) {
+    if (password.length < 6) {
       return res.status(400).json({
         success: false,
         message: "Password should have at least 6 characters",
@@ -120,6 +120,15 @@ export async function logout(req, res) {
       .json({ success: true, message: "User logged out sucessfully" });
   } catch (error) {
     console.log("Error in logout controller: " + error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+}
+
+export async function authCheck(req, res) {
+  try {
+    res.status(200).json({ success: true, user: req.user });
+  } catch (error) {
+    console.log("Error in authCheck controller: ", error.message);
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 }

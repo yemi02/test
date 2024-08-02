@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../store/authUser";
 
 const SignupPage = () => {
-  const [email, setEmail] = useState("");
+  const { searchParams } = new URL(document.location);
+  const emailValue = searchParams.get("email");
+
+  const [email, setEmail] = useState(emailValue || "");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const { signup } = useAuthStore();
 
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log(email, username, password, confirmPassword);
+    console.log(email, username, password);
+    signup({ email, username, password });
   };
   return (
     <div className="h-screen w-full hero-bg">
@@ -73,23 +79,6 @@ const SignupPage = () => {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="confirm-password"
-                className="text-sm font-medium text-gray-300 block"
-              >
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                className="w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring"
-                placeholder="••••••••"
-                id="confirm-password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
 

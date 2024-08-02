@@ -5,7 +5,6 @@ import { User } from "../models/user.model.js";
 export const protectRoute = async (req, res, next) => {
   try {
     const token = req.cookies["jwt-new-netflix"];
-    console.log(token);
 
     if (!token) {
       return res.status(404).json({
@@ -23,7 +22,7 @@ export const protectRoute = async (req, res, next) => {
       });
     }
 
-    const user = await User.findById(decoded.userId);
+    const user = await User.findById(decoded.userId).select("-password");
 
     if (!user) {
       return res

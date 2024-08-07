@@ -85,7 +85,7 @@ const HomeScreen = () => {
               Play
             </Link>
             <Link
-              to={"/watch/123"}
+              to={`/watch/${trendingContent?.id}`}
               className="bg-gray-500/70 hover:bg-gray-500 text-white py-2 px-4 rounded mr-4 flex items-center"
             >
               <Info className="size-5 inline-block mr-2 " />

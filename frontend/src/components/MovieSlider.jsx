@@ -29,7 +29,7 @@ const MovieSlider = ({ category }) => {
     console.log("left");
     if (sliderRef.current) {
       sliderRef.current.scrollBy({
-        left: -sliderRef.current.offsetwidth,
+        left: -sliderRef.current.offsetWidth,
         behavior: "smooth",
       });
     }
@@ -38,7 +38,7 @@ const MovieSlider = ({ category }) => {
     console.log("right");
 
     sliderRef.current.scrollBy({
-      left: sliderRef.current.offsetwidth,
+      left: sliderRef.current.offsetWidth,
       behavior: "smooth",
     });
   };

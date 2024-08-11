@@ -4,7 +4,7 @@ import { fetchFromTMDB } from "../services/tmdb.service.js";
 export async function searchPerson(req, res) {
   const { query } = req.params;
   try {
-    const data = fetchFromTMDB(
+    const data = await fetchFromTMDB(
       `https://api.themoviedb.org/3/search/person?query=${query}&include_adult=false&language=en-US&page=1`
     );
 

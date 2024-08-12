@@ -19,7 +19,6 @@ const WatchPage = () => {
 
   const sliderRef = useRef(null);
 
-  console.log(similarContent, "similar content");
   useEffect(() => {
     const getTrailers = async () => {
       try {
@@ -82,7 +81,6 @@ const WatchPage = () => {
     });
   };
   const scrollLeft = () => {
-    console.log("left");
     if (sliderRef.current) {
       sliderRef.current.scrollBy({
         left: -sliderRef.current.offsetWidth,
@@ -91,8 +89,6 @@ const WatchPage = () => {
     }
   };
   const scrollRight = () => {
-    console.log("right");
-
     sliderRef.current.scrollBy({
       left: sliderRef.current.offsetWidth,
       behavior: "smooth",

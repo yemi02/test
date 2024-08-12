@@ -16,8 +16,6 @@ const HomeScreen = () => {
   const { contentType } = useContentStore();
   const [imageLoading, setImageLoading] = useState(true);
 
-  console.log(trendingContent);
-
   if (!trendingContent)
     return (
       <div className="text-white h-screen relative bg-black">

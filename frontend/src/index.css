@@ -4,7 +4,7 @@
 
 .hero-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1)),
-    url("hero.png");
+    url("/hero.png");
 }
 
 .shimmer {
@@ -31,12 +31,12 @@
     rgba(0, 0, 0, 0.1) 55%,
     transparent 70%
   );
-  bottom: -10vw;
+  bottom: 0vw;
   content: "";
   left: 10vw;
   position: absolute;
   right: 10vw;
-  top: -10vw;
+  top: 0vw;
   z-index: -1;
 }
 

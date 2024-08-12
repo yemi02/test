@@ -97,6 +97,7 @@ const SearchPage = () => {
                       alt={"Image of " + result.name}
                       className="mt-2 text-xl font-bold"
                     />
+                    <h2 className="mt-2 text-xl font-bold">{result.name}</h2>
                   </div>
                 ) : (
                   <Link
